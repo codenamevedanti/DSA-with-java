@@ -104,7 +104,45 @@ public class DoublyCircularLinkedList {
 				}
 			}
 		}
+		
+		public void deletebyVal(int val) {
+			if(head==null) {
+				System.out.println("List is Empty");
+			}
+			Node tail=head.prev;
+			if(head.data ==val) {
+				if(head==tail) {
+					head=null;
+				}
+				else {
+					head.next.prev=tail;
+					tail.next=head.next;
+					Node temp=head;
+					head=head.next;
+					temp.next=null;
+				}
+			}
+				else {
+					Node temp=head;
+					while(temp.next!=head && temp.data!= val) {
+						temp=temp.next;
+					}
+					if(temp.data==val) {
+						temp.prev.next=temp.next;
+						temp.next.prev=temp.prev;
+						temp.prev=null;
+						temp.next=null;
+					}
+					else {
+						System.out.println(val + "Is beyond the limit .");
+					}
+				}
+			
+			
+			}
 
+		
+		
 		
 		public void displayData() {
 		    if (head == null) {
@@ -115,8 +153,19 @@ public class DoublyCircularLinkedList {
 		            System.out.print(temp.data + "--->");
 		            temp = temp.next;
 		        } while (temp != head);
-		        System.out.println("head");
+		        System.out.println();
 		    }
+		}
+		
+		public void displaydataReverse() {
+			Node temp=head.prev;
+			do {
+				System.out.print(temp.data+"----->");
+				temp=temp.prev;
+				
+			}
+			while(temp!=head); 
+			System.out.println();
 		}
 
 		

@@ -13,8 +13,16 @@ public class TestDoublyCircular {
 		
 //		dlist.addbypos(3, 45);
 //		dlist.displayData();
+//		
+//		dlist.deletebypos(2);
+//		dlist.displayData();
 		
-		dlist.deletebypos(2);
+		dlist.displaydataReverse();
+		
+		dlist.deletebyVal(100);
+		
+		
+		dlist.deletebyVal(14);
 		dlist.displayData();
 	}
 
