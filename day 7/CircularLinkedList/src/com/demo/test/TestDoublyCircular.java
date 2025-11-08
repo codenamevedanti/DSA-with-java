@@ -18,7 +18,7 @@ public class TestDoublyCircular {
 //		dlist.displayData();
 		
 		dlist.displaydataReverse();
-		
+		9
 		dlist.deletebyVal(100);
 		
 		
