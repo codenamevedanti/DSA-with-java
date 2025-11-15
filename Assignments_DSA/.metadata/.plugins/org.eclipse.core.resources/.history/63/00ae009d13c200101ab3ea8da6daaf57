@@ -1,0 +1,42 @@
+package com.demo.list;
+
+public class MyLinkedList {
+	    Node head;
+        class Node{
+        	int data;
+        	Node next;
+			public Node(int data, Node next) {
+				super();
+				this.data = data;
+			    next=null;
+			} 	
+        }
+		public MyLinkedList(Node head) {
+			head = null;
+		}
+		
+		public void displaydata() {
+			if(head==null) {
+				System.out.println("The list is empty.");
+			}
+			else {
+				for(Node temp=head;temp!=null;temp=temp.next) {
+					System.out.print(temp.data+"--->");
+				}
+				System.out.println("null");
+			}
+		}
+		
+		
+		public void displayrev(Node node) {
+			if(node==null) {
+				return;
+			}
+			displayrev(node.next);
+			System.out.println(node.data+"---->");
+			
+			
+		}
+        
+        
+}

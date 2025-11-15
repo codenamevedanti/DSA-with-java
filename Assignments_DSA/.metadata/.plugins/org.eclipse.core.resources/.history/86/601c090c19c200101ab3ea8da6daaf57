@@ -1,0 +1,129 @@
+package com.demo.list;
+
+public class MyLinkedList {
+	    public Node head;
+        class Node{
+        	int data;
+        	Node next;
+			public Node(int data) {
+				super();
+				this.data = data;
+			    next=null;
+			} 	
+        }
+		public MyLinkedList() {
+			head = null;
+		}
+		
+		public void displaydata() {
+			if(head==null) {
+				System.out.println("The list is empty.");
+			}
+			else {
+				for(Node temp=head;temp!=null;temp=temp.next) {
+					System.out.print(temp.data+"--->");
+				}
+				System.out.println("null");
+			}
+		}
+		
+		public void addNode(int value) {
+			Node newNode =new Node(value);
+			if(head==null) {
+				head=newNode;
+			}
+			else {
+				Node temp=head;
+				while(temp.next!=null) {
+                     temp=temp.next;					
+				}
+				temp.next=newNode;
+			}
+			
+		}
+		
+		
+		public void displayrev() {
+		    Node prev = null, curr = head, next;
+		    while (curr != null) {
+		        next = curr.next;
+		        curr.next = prev;
+		        prev = curr;
+		        curr = next;
+		    }
+		   
+		    Node temp = prev;
+		    while (temp != null) {
+		        System.out.print(temp.data + "--->");
+		        temp = temp.next;
+		    }
+		    System.out.println("null");
+		}
+		  
+
+        
+		
+		public void findMaxNode(Node head) {
+			int maxEven=-1;
+			int maxOdd=-1;
+			Node temp=head;
+			
+			while(temp!=null) {
+				if(temp.data%2 == 0) {
+					if(temp.data>maxEven) {
+						maxEven=temp.data;
+					}
+					else {
+						if(temp.data>maxOdd) {
+							maxOdd=temp.data;
+						}
+					}
+					temp=temp.next;
+				}
+				
+				if(maxEven== -1) {
+					System.out.println("No even no found.");
+				}
+				else {
+					System.out.println("Max even :" +maxEven);
+				}
+				
+				if(maxOdd==-1) {
+					System.out.println("No odd no. is found.");
+				}else {
+					System.out.println("Max odd:" +maxOdd);
+				}
+			}
+			
+			
+		}
+        
+		
+		private boolean isPrime(int n) {
+			if(n<=1) {
+				return false;
+			}
+			if(n==2) {
+				 return true;
+			}
+			for(int i=0;i<n/2;i++) {
+				if(n%i == 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		
+		public void deletePrime() {
+			while(head!=null && isPrime(head.data)) {
+				head=head.next;
+			}
+			Node temp=head;
+			while(temp!=null && temp.next!=null) {
+				if(isPrime(temp.next.data)) {
+					head.next=head.next.next;
+				}
+			}
+		}
+}

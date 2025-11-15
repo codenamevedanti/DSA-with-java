@@ -1,0 +1,31 @@
+package com.demo.test;
+import com.demo.list.*;
+
+public class TestLinkedList {
+
+	public static void main(String[] args) {
+		MyLinkedList mlist=new  MyLinkedList();
+		
+		mlist.addNode(10);
+		mlist.addNode(20);
+		mlist.addNode(30);
+		mlist.addNode(40);
+
+		mlist.addNode(50);
+
+		mlist.addNode(60);
+		mlist.displaydata();
+		
+		System.out.println("----------------------------------");
+		System.out.println("The lsit in reverse order is:");
+		mlist.displayrev();
+		
+		System.out.println("----------------------------------");
+		System.out.println("The Maximum odd and eve no in list is:");
+		mlist.findMaxNode(mlist.head);
+
+		
+
+	}
+
+}
